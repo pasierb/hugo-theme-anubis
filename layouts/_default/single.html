@@ -9,7 +9,8 @@
         </div>
         {{ partial "articleInfoFull.html" . }}
     </article>
-    {{ if .Site.DisqusShortname }}
+
+    {{ if and .Site.DisqusShortname (isset .Params "comments") .Params.comments }}
         {{ template "_internal/disqus.html" . }}
     {{ end }}
 
